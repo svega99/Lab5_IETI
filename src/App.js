@@ -1,26 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {TaskApp} from "./components/TaskApp";
+import {Login} from "./components/Login.js";
 import './App.css';
+import {BrowserRouter as Router,  Route, } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component  {
+
+  constructor(props) {
+    super(props);
+    this.state = { isLoggedIn: false };
+    
+}
+
+  render(){
+       
+        if(localStorage.getItem('isLoggedIn')==null) localStorage.setItem('isLoggedIn',false);
+              //localStorage.setItem('isLoggedIn',false);
+              localStorage.setItem('username', 'user');
+              localStorage.setItem('password', 'psw');
+              
+
+        const LoginView = () => {
+          /*const logged =localStorage.getItem('isLoggedIn');
+          
+          if (logged==="true"){
+              return <Redirect to="/taskplanner" />
+          }
+          else*/ return <Login/>
+      };
+
+      const TaskAppView = () => {
+        /*  const logged =localStorage.getItem('isLoggedIn');
+          
+          if (logged==="false" ){
+              return <Redirect to="/" />
+          }
+          else */return <TaskApp/>
+      };
+
+
+        return (
+          
+
+            <Router>
+                      <div className="App" >
+
+                          <div>
+                              <Route exact path="/" component={LoginView}/>
+                              <Route path="/taskplanner" component={TaskAppView}
+                              />
+                          </div>
+                        
+                      </div>
+            </Router>
+          
+        );
+  }
 }
 
 export default App;
