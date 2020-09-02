@@ -69,8 +69,8 @@ export class MyCards extends Component {
   render(){
       return (
         <div>
-            {this.state.tasks.map((task) => (
-                    <Card className={classes.root} variant="outlined">
+            {this.state.tasks.map((task,index) => (
+                    <Card className={classes.root} variant="outlined" key={index}>
 
                     <CardHeader
                       action={
