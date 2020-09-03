@@ -1,4 +1,4 @@
-# 1.3 Task Planner Project - Front End
+# 1.4 Task Planner Project - Front End - Part 2
 
 La presencia de este documento en este repositorio es un compromiso explícito de los colaboradores de seguir el siguiente código de honor:
 
@@ -12,23 +12,7 @@ Debes seguir el Código de honor del ingeniero de sistemas para defender el est�
 
 - No puedes participar en otras actividades que mejorarán de manera deshonesta tus resultados o que mejorarán de manera deshonesta o dañarán los resultados de otras personas.
 
-## Login
 
-![alt text](img/2.PNG)
-
-## Navigation Drawer
-
-![alt text](img/3.PNG)
-
-## Card Layouts
-
-![alt text](img/4.PNG)
-
-## Service Workers and Offline Support
-
-Aplicación funcionando offline:
-
-![alt text](img/5.PNG)
 
 
 ## Heroku Deploy
