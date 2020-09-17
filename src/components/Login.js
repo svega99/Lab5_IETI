@@ -16,7 +16,7 @@ export class Login extends React.Component{
 
     constructor(props) {
         super(props);
-        this.state = {items: [], email: '', password:''};
+        this.state = {items: [], email: 'aa', password:'aa'};
         this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,7 +61,6 @@ export class Login extends React.Component{
                                 variant="contained"
                                 color="primary"
                                 className="submit"
-                                href="/taskplanner"
                             >
                                 Log in
                             </Button>
@@ -88,10 +87,23 @@ export class Login extends React.Component{
     handleSubmit(e) {
 
         e.preventDefault();
+        if (!this.state.email.length || !this.state.password.length )
+            return;
 
+        const user=localStorage.getItem('username');
+        const psw=localStorage.getItem('password');
+        if (this.state.email===user && this.state.password===psw){
+            localStorage.setItem('isLoggedIn', true);
+            window.location.href = "/taskplanner";
+            
+            
+        }else {
+            localStorage.setItem('isLoggedIn', false);
+            alert("Usuario y contraseña no encontrados");
+        }
        
             
-                return <Redirect to="/taskplanner" />
+        
         
     }
 

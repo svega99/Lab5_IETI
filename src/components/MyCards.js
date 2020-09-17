@@ -35,41 +35,47 @@ export class MyCards extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {tasks:[{
-        "description": "Implementar Tasks",
-        "responsible": {
-          "name": "Santiago Vega",
-          "email": "santiago.vega-r@mail.escuelaing.edu.co"
-        },
-        "status": "Ready",
-        "dueDate": "2020-08-27T00:00:00-05:00"
-      },
-      {
-        "description": "Despliegue en Azure",
-        "responsible": {
-          "name": "Santiago Vega",
-          "email": "santiago.vega-r@mail.escuelaing.edu.co"
-        },
-        "status": "In Progress",
-        "dueDate": "2020-09-03T00:00:00-05:00"
-      },
-      {
-        "description": "Implementar Login",
-        "responsible": {
-          "name": "Santiago Vega ",
-          "email": "santiago.vega-r@mail.escuelaing.edu.co"
-        },
-        "status": "Completed",
-        "dueDate": "2020-08-27T00:00:00-05:00"
-      }]};
-
+    
 }
   
 
   render(){
+    let isRes=true;
+    let isDate=true;
+    let isStatus = true;
+    const responsable=this.props.TaskFilters.responsible;
+    const dueDate=this.props.TaskFilters.dueDate;
+    const status=this.props.TaskFilters.status;
+    
+    if(responsable===""){
+        isRes=false;
+    }
+    if(dueDate===""){
+        isDate=false;
+    }
+    if(status===""){
+        isStatus=false;
+    }
+
+    
+    const TaskListFiletered= this.props.Tasks.map((task,index) => {
+        if (!isRes && !isDate && !isStatus){
+          return task
+        }
+        else if(isRes && responsable===task.responsible.name){
+          return task
+        }else if (isDate && dueDate===task.dueDate){
+          return task
+        }else if (isStatus && status===task.status){
+          return task
+        }
+    });
+
+
+  
       return (
         <div>
-            {this.state.tasks.map((task,index) => (
+            {this.props.Tasks.map((task,index) => (
                     <Card className={classes.root} variant="outlined" key={index}>
 
                     <CardHeader
@@ -101,3 +107,4 @@ export class MyCards extends Component {
       );
     }
 }
+

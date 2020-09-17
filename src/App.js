@@ -1,59 +1,59 @@
 import React, {Component} from 'react';
-import {TaskApp} from "./components/TaskApp";
+import TaskApp from "./components/TaskApp";
 import {Login} from "./components/Login.js";
+import {NewTask} from "./components/NewTask.js";
 import './App.css';
-import {BrowserRouter as Router,  Route, } from 'react-router-dom'
+import {BrowserRouter as Router,  Route, Redirect } from 'react-router-dom'
+import moment from "moment";
+
+
+
 
 
 class App extends Component  {
 
   constructor(props) {
     super(props);
-    this.state = { isLoggedIn: false };
+    this.state = { isNewTask: false,task:{} };
+    
     
 }
 
+    
+
   render(){
        
-        if(localStorage.getItem('isLoggedIn')==null) localStorage.setItem('isLoggedIn',false);
+        if(localStorage.getItem('isLoggedIn')===null) localStorage.setItem('isLoggedIn',false);
               //localStorage.setItem('isLoggedIn',false);
-              localStorage.setItem('username', 'user');
-              localStorage.setItem('password', 'psw');
-              
+        localStorage.setItem('isNewTask',false);
+        localStorage.setItem('username', 'santiago.vega-r');
+        localStorage.setItem('password', 'pass');
+        
+        
 
-        const LoginView = () => {
-          /*const logged =localStorage.getItem('isLoggedIn');
-          
-          if (logged==="true"){
-              return <Redirect to="/taskplanner" />
-          }
-          else*/ return <Login/>
+      const LoginView = () => {
+          return <Login/>
       };
 
       const TaskAppView = () => {
-        /*  const logged =localStorage.getItem('isLoggedIn');
-          
-          if (logged==="false" ){
-              return <Redirect to="/" />
-          }
-          else */return <TaskApp/>
+        
+          return  <TaskApp newTask={this.state.task} /> 
+       
       };
-
-
         return (
-          
+          <Router>
+            <div className="App" >
 
-            <Router>
-                      <div className="App" >
-
-                          <div>
-                              <Route exact path="/" component={LoginView}/>
-                              <Route path="/taskplanner" component={TaskAppView}
-                              />
-                          </div>
+              <div>
+                  {localStorage.getItem('isLoggedIn')==='true'?
+                    <Route path="/taskplanner" component={TaskAppView}/>:
+                    <Route exact path="/" component={LoginView}/>}
+                              
+                          
+              </div>
                         
-                      </div>
-            </Router>
+            </div>
+          </Router>
           
         );
   }
