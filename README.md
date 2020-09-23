@@ -1,4 +1,4 @@
-# 1.4 Task Planner Project - Front End - Part 2
+# 1.5 Task Planner PWA
 
 La presencia de este documento en este repositorio es un compromiso explícito de los colaboradores de seguir el siguiente código de honor:
 
@@ -11,6 +11,7 @@ Debes seguir el Código de honor del ingeniero de sistemas para defender el est�
 - No puedes compartir tus soluciones de tareas, cuestionarios o exámenes con otra persona a menos que el instructor lo permita explícitamente. Esto incluye cualquier cosa escrita por ti, como también cualquier solución oficial proporcionada por el docente o el monitor del curso.
 
 - No puedes participar en otras actividades que mejorarán de manera deshonesta tus resultados o que mejorarán de manera deshonesta o dañarán los resultados de otras personas.
+
 ## Inicio de Sesión
 
 Usuario: santiago.vega-r
@@ -18,37 +19,9 @@ Usuario: santiago.vega-r
 Contraseña: pass
 
 
-## Creación de nueva tarea
+## Firebase
 
-1. Se da click en el botón "+".
-
-![alt text](img/1.1.PNG)
-
-2. Se completa el formulario.
-
-![alt text](img/1.2.PNG)
-
-3. Tarea creada exitosamente.
-
-![alt text](img/1.3.PNG)
-
-## Actualizar información usuario
-
-1. En el drawer se da click en el icono de editar
-
-![alt text](img/2.1.PNG)
-
-2. Se completa el formulario.
-
-![alt text](img/2.2.PNG)
-
-3. Información actualizada.
-
-![alt text](img/2.3.PNG)
-
-
-## Aplicar Filtros
-
+[Firebase Link](https://taks-planner-app-61652.firebaseapp.com/)
 
 
 
